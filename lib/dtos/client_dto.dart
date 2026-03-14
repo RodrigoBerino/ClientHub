@@ -1,7 +1,8 @@
-part 'cliente_validate_mixin.dart';
 import 'package:clientserver/dtos/dto.dart';
 import 'package:clientserver/exceptions/validate_exception.dart';
 import 'package:clientserver/services/string_generator.dart';
+
+part 'cliente_validate_mixin.dart';
 
 class ClientDto extends Dto with ClienteValidate {
   late String id;

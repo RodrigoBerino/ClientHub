@@ -21,4 +21,22 @@ class ClientAdapter {
       details: model.details,
     );
   }
+
+  static Map<String, dynamic> entityToMap(ClientEntity model) {
+    return {
+      'id': model.id,
+      'name': model.name,
+      'email': model.email,
+      'details': model.details,
+    };
+  }
+
+  static Map<String, dynamic> dtoToMap(ClientDto model) {
+    return {
+      'id': model.id,
+      'name': model.name,
+      'email': model.email,
+      'details': model.details,
+    };
+  }
 }

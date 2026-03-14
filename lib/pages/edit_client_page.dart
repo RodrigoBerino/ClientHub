@@ -3,6 +3,7 @@ import 'package:clientserver/atoms/client_atoms.dart';
 import 'package:clientserver/dtos/client_dto.dart';
 import 'package:clientserver/entities/client_entity.dart';
 import 'package:clientserver/states/edit_state.dart';
+import 'package:clientserver/widgets/text_input.dart';
 import 'package:flutter/material.dart';
 
 class EditClient extends StatefulWidget {
@@ -54,7 +55,7 @@ class _EditClientState extends State<EditClient> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  void save() {
+  void _save() {
     if (!dto.isValid()) {
       _showSnackError(const FailureEditClientState('Campos inválidos'));
       return;
@@ -117,7 +118,7 @@ class _EditClientState extends State<EditClient> {
                 const SizedBox(width: 10),
                 OutlinedButton(
                   onPressed: !enabled ? null : _clear,
-                  child: const Text('Limpa'),
+                  child: const Text('Limpar'),
                 ),
               ],
             ),
