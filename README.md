@@ -27,21 +27,13 @@ O App nasceu da necessidade de ter uma interface mobile para gerenciar clientes 
 
 Siga estes passos para iniciar o projeto localmente:
 
-**a) Suba o backend**
-
-```bash
-cd clientserver_backend
-
-dart run bin/server.dart
-```
-
-**b) Clone o repositório**
+**a) Clone o repositório**
 
 ```bash
 git clone git@github.com:RodrigoBerino/clientValitation.git
 ```
 
-**c) Comandos**
+**b) Comandos**
 
 ```bash
 cd clientserver
@@ -55,7 +47,7 @@ flutter run -d web-server
 
 ### 3. Diagrama de classes
 
-Abaixo o diagrama do projeto para uma visão sistemica e arquitetural do que foi construído:
+Abaixo o diagrama do projeto para uma visão sistematica e arquitetural do que foi construído:
 
 <p align="center">
   <img src="./assets/diagrama.svg" width="100%"/>
@@ -77,6 +69,6 @@ Abaixo o diagrama do projeto para uma visão sistemica e arquitetural do que foi
 
 ---
 
-### 5. Créditos ao designer pela primeira tela
+### 5. Créditos
 
 [Referência baseada em projeto Open do Dribbble](https://dribbble.com/shots/15002657-Mental-Health-App)
