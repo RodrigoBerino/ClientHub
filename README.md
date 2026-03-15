@@ -35,8 +35,6 @@ cd clientserver_backend
 dart run bin/server.dart
 ```
 
-Confirme que está ativo acessando `http://localhost:3031/clients` no navegador.
-
 **b) Clone o repositório**
 
 ```bash
