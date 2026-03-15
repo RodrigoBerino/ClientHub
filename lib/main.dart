@@ -1,6 +1,7 @@
 import 'package:clientserver/entities/client_entity.dart';
 import 'package:clientserver/pages/client_page.dart';
 import 'package:clientserver/pages/edit_client_page.dart';
+import 'package:clientserver/pages/home_page.dart';
 import 'package:clientserver/reducers/client_reducer.dart';
 import 'package:clientserver/services/http_client_service.dart';
 import 'package:clientserver/services/client_service.dart';
@@ -48,9 +49,11 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (_) => const ClientPage(),
+        '/': (_) => const HomePage(),
+        '/clients': (_) => const ClientPage(),
         '/create': (_) => const EditClient(),
         '/edit': (context) {
           final entity =

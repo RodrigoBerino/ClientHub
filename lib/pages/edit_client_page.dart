@@ -74,56 +74,108 @@ class _EditClientState extends State<EditClient> {
   @override
   Widget build(BuildContext context) {
     final state = editClientState.value;
-
     final enabled = state is! LoadingEditClientState;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Edit Client')),
-      body: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          children: [
-            TextInput(
-              key: Key('name:$enabled${dto.hashCode}'),
-              enabled: enabled,
-              initialValue: dto.name,
-              hint: 'Nome',
-              validator: dto.nameValidate,
-              onChanged: (value) => dto.name = value,
-            ),
-            const SizedBox(height: 5),
-            TextInput(
-              key: Key('email:$enabled${dto.hashCode}'),
-              enabled: enabled,
-              initialValue: dto.email,
-              hint: 'Email',
-              validator: dto.emailValidate,
-              onChanged: (value) => dto.email = value,
-            ),
-            const SizedBox(height: 5),
-            TextInput(
-              key: Key('details:$enabled${dto.hashCode}'),
-              enabled: enabled,
-              initialValue: dto.details,
-              hint: 'Detalhes',
-              onChanged: (value) => dto.details = value,
-            ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                OutlinedButton(
-                  onPressed: !enabled ? null : _save,
-                  child: const Text('Salvar'),
-                ),
-                const SizedBox(width: 10),
-                OutlinedButton(
-                  onPressed: !enabled ? null : _clear,
-                  child: const Text('Limpar'),
-                ),
-              ],
-            ),
-          ],
+      backgroundColor: Colors.blue[800],
+      appBar: AppBar(
+        backgroundColor: Colors.blue[800],
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text(
+          editable ? 'Edit Client' : 'New Client',
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.normal,
+            fontSize: 18,
+          ),
         ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(0),
+                  topRight: Radius.circular(0),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextInput(
+                    key: Key('name:$enabled${dto.hashCode}'),
+                    enabled: enabled,
+                    initialValue: dto.name,
+                    hint: 'Nome',
+                    validator: dto.nameValidate,
+                    onChanged: (value) => dto.name = value,
+                  ),
+                  const SizedBox(height: 12),
+                  TextInput(
+                    key: Key('email:$enabled${dto.hashCode}'),
+                    enabled: enabled,
+                    initialValue: dto.email,
+                    hint: 'Email',
+                    validator: dto.emailValidate,
+                    onChanged: (value) => dto.email = value,
+                  ),
+                  const SizedBox(height: 12),
+                  TextInput(
+                    key: Key('details:$enabled${dto.hashCode}'),
+                    enabled: enabled,
+                    initialValue: dto.details,
+                    hint: 'Detalhes',
+                    onChanged: (value) => dto.details = value,
+                  ),
+                  const SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue[800],
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          onPressed: !enabled ? null : _save,
+                          child: const Text(
+                            'Salvar',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.blue[800],
+                            side: BorderSide(color: Colors.blue[800]!),
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          onPressed: !enabled ? null : _clear,
+                          child: const Text(
+                            'Limpar',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
